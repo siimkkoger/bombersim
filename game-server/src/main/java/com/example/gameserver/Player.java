@@ -1,20 +1,29 @@
 package com.example.gameserver;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Getter
 @Setter
-@AllArgsConstructor
 public class Player {
 
+    private UUID id;
     private String name;
     private int x;
     private int y;
     private int score;
 
-    public void move(int dx, int dy) {
+    public Player(UUID id, String name) {
+        this.id = id;
+        this.name = name;
+        this.x = 0;
+        this.y = 0;
+        this.score = 0;
+    }
+
+    public void setPosition(int dx, int dy) {
         x += dx;
         y += dy;
     }
