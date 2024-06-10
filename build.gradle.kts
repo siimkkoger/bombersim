@@ -19,9 +19,15 @@ subprojects {
     apply(plugin = "io.spring.dependency-management")
 
     dependencies {
+        val lombokVersion = "1.18.32"
+
         implementation("org.springframework.boot:spring-boot-starter-web")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+        // Lombok
+        compileOnly(group = "org.projectlombok", name = "lombok", version = lombokVersion)
+        testCompileOnly(group = "org.projectlombok", name = "lombok", version = lombokVersion)
     }
 
     tasks.withType<Test> {
